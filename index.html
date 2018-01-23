@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+		<title>移动端日历插件</title>
+		<link rel="stylesheet" type="text/css" href="picker.min.css" />
+		<style>
+			.title{
+				text-align:center;
+			}
+			.introduce{
+				padding: 10px;
+			}
+			.input-block{
+				padding:10px;
+				text-align:center;
+			}
+			.input-block>label{
+				float:left;
+				width: 100px;
+				padding: 10px 0;
+				box-sizing:border-box;
+			}
+			.input-block>input{
+				display:block;
+				margin-left:100px;
+				padding:10px;
+				box-sizing:border-box;
+			}
+		</style>
+	</head>
+	<body>
+		<h2 class='title'>移动端日历插件</h2>
+		<p class='introduce'>这个移动端日历插件是我在<a href='http://www.jqhtml.com/7870.html'>datePicker</a>的插件基础上修复了一些bug，扩展了一些功能，基于zepto</p>
+		<div class='input-block'>
+			<label>年：</label>
+			<input class='datePicker' date-tp='0' type="text" placeholder='选择年'>
+		</div>
+		<div class='input-block'>
+			<label>年月：</label>
+			<input class='datePicker' date-tp='1' type="text" placeholder='选择年月'>
+		</div>
+		<div class='input-block'>
+			<label>时分：</label>
+			<input class='datePicker' date-tp='2' type="text" placeholder='选择时分'>
+		</div>
+		<div class='input-block'>
+			<label>年月日：</label>
+			<input class='datePicker' date-tp='3' type="text" placeholder='选择年月日'>
+		</div>
+		<div class='input-block'>
+			<label>年月日时分：</label>
+			<input class='datePicker' date-tp='4' type="text" placeholder='选择年月日时分'>
+		</div>
+	</body>
+	<script src='zeptov1.2.0.min.js'></script>
+	<script src='datePicker.min.js'></script>
+	<script>
+		//绑定日历插件
+		$(".datePicker").on("click", function(){
+			var type = this.getAttribute("date-tp");
+			var t = this;
+			new DatePicker({
+		        type: type,//0:年，1:年月, 2:时分, 3:年月日，4:年月日时分
+		        title: '请选择日期',//标题(可选)
+		        maxYear: "",//最大年份（可选）
+		        minYear: "",//最小年份（可选）
+		        separator: "-",//分割符，默认-(可选)
+		        defaultValue: t.value,//默认显示日期，默认当前日期（可选）
+		        callBack: function (val) {
+		            //回调函数（val为选中的日期）
+		            t.value = val;
+		        }
+		    });
+		});
+	</script>
+</html>
+
