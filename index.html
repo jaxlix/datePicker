@@ -33,7 +33,7 @@
 	</head>
 	<body>
 		<h2 class='title'>移动端日历插件</h2>
-		<p class='introduce'>这个移动端日历插件是我在<a href='http://www.jqhtml.com/7870.html'>datePicker</a>的插件基础上修复了一些bug，扩展了一些功能，基于zepto</p>
+		<p class='introduce'>基于zepto的移动端日历插件</p>
 		<div class='input-block'>
 			<label>年：</label>
 			<input class='datePicker' date-tp='0' type="text" placeholder='选择年'>
@@ -54,6 +54,10 @@
 			<label>年月日时分：</label>
 			<input class='datePicker' date-tp='4' type="text" placeholder='选择年月日时分'>
 		</div>
+		<div class='input-block'>
+			<label>年月日上午|下午：</label>
+			<input class='datePicker' date-tp='5' type="text" placeholder='选择年月日上午|下午'>
+		</div>
 	</body>
 	<script src='zeptov1.2.0.min.js'></script>
 	<script src='datePicker.min.js'></script>
@@ -63,7 +67,7 @@
 			var type = this.getAttribute("date-tp");
 			var t = this;
 			new DatePicker({
-		        type: type,//0:年，1:年月, 2:时分, 3:年月日，4:年月日时分
+		        type: type,//0:年，1:年月, 2:时分, 3:年月日，4:年月日时分，5：年月日上午、下午
 		        title: '请选择日期',//标题(可选)
 		        maxYear: "",//最大年份（可选）
 		        minYear: "",//最小年份（可选）
